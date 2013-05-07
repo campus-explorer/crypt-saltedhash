@@ -10,3 +10,4 @@ t/04Crypt-SaltedHash.t
 t/bug-localize-regex-vars.t
 README
 META.yml
+META.json
