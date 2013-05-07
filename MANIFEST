@@ -7,5 +7,6 @@ t/01use.t
 t/02pod.t
 t/03podcoverage.t
 t/04Crypt-SaltedHash.t
+t/bug-localize-regex-vars.t
 README
 META.yml
