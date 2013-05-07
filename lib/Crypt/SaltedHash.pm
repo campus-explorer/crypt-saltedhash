@@ -6,7 +6,7 @@ use Digest       ();
 
 use vars qw($VERSION);
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 =head1 NAME
 
@@ -211,6 +211,19 @@ update the current digest state. For more details see L<Digest>.
 sub add {
     my $self = shift;
     $self->obj->add(@_);
+    return $self;
+}
+
+=item B<clear()>
+
+Resets the digest.
+
+=cut
+
+sub clear {
+    my $self = shift;
+    $self->{digest} = Digest->new( $self->{algorithm} );
+    return $self;
 }
 
 =item B<salt_bin()>
@@ -220,7 +233,7 @@ Returns the salt in binary form.
 =cut
 
 sub salt_bin {
-    my ($self) = @_;
+    my $self = shift;
 
     return $self->{salt} =~ m!^HEX{(.*)}$!i ? pack( "H*", $1 ) : $self->{salt};
 }
@@ -232,7 +245,7 @@ Returns the salt in hexadecimal form ('HEX{...}')
 =cut
 
 sub salt_hex {
-    my ($self) = @_;
+    my $self = shift;
 
     return $self->{salt} =~ m!^HEX{(.*)}$!i
       ? $self->{salt}
@@ -248,14 +261,14 @@ I<Crypt::SaltedHash> has the same effect as adding the data before the call of I
 =cut
 
 sub generate {
-    my ($self) = @_;
+    my $self = shift;
 
     my $clone = $self->obj->clone;
     my $salt  = $self->salt_bin;
 
     $clone->add($salt);
 
-    my $gen    = &MIME::Base64::encode_base64( $clone->digest . $salt, '' );
+    my $gen = &MIME::Base64::encode_base64( $clone->digest . $salt, '' );
     my $scheme = $self->{scheme};
 
     return "{$scheme}$gen";
@@ -300,7 +313,7 @@ Returns a handle to L<Digest> object.
 =cut
 
 sub obj {
-    shift->{digest};
+    return shift->{digest};
 }
 
 =back
@@ -329,6 +342,7 @@ sub __make_algorithm {
 
     if ( $algorithm =~ m!^S(.*)$! ) {
         $algorithm = $1;
+
         # print STDERR "algorithm: $algorithm\n";
         if ( $algorithm =~ m!([a-zA-Z]+)([0-9]+)! ) {
 
@@ -402,7 +416,7 @@ hashes demystified - A Primer (L<http://www.securitydocs.com/library/3439>)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005 Sascha Kiefer
+Copyright (C) 2010 Sascha Kiefer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

@@ -171,6 +171,9 @@ METHODS
         Logically joins the arguments into a single string, and uses it to
         update the current digest state. For more details see Digest.
 
+    clear()
+        Resets the digest.
+
     salt_bin()
         Returns the salt in binary form.
 
@@ -206,7 +209,7 @@ ACKNOWLEDGMENTS
     (<http://www.securitydocs.com/library/3439>)
 
 COPYRIGHT AND LICENSE
-    Copyright (C) 2005 Sascha Kiefer
+    Copyright (C) 2010 Sascha Kiefer
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

@@ -1,6 +1,6 @@
 ---
 name: Crypt-SaltedHash
-version: 0.05
+version: 0.06
 author:
   - 'Sascha Kiefer, L<esskar@cpan.org>'
 abstract: |-
@@ -14,8 +14,8 @@ requires:
 provides:
   Crypt::SaltedHash:
     file: lib/Crypt/SaltedHash.pm
-    version: 0.05
-generated_by: Module::Build version 0.2801
+    version: 0.06
+generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
