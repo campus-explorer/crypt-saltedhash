@@ -339,6 +339,7 @@ sub __make_scheme {
 sub __make_algorithm {
 
     my $algorithm = shift;
+    local $1;
 
     if ( $algorithm =~ m!^S(.*)$! ) {
         $algorithm = $1;
@@ -364,12 +365,14 @@ sub __make_algorithm {
 }
 
 sub __get_pass_scheme {
-    $_[0] =~ m/{([^}]*)/;
+    local $1;
+    return unless $_[0] =~ m/{([^}]*)/;
     return $1;
 }
 
 sub __get_pass_hash {
-    $_[0] =~ m/}(.*)/;
+    local $1;
+    return unless $_[0] =~ m/}(.*)/;
     return $1;
 }
 
