@@ -288,9 +288,10 @@ sub validate {
     $hasheddata =~ s!^\s+!!;
     $hasheddata =~ s!\s+$!!;
 
-    my $scheme    = uc( &__get_pass_scheme($hasheddata) );
+    my $scheme    = &__get_pass_scheme($hasheddata);
+    $scheme       = uc( $scheme ) if $scheme;
     my $algorithm = &__make_algorithm($scheme);
-    my $hash      = &__get_pass_hash($hasheddata);
+    my $hash      = &__get_pass_hash($hasheddata) || '';
     my $salt      = &__extract_salt( $hash, $salt_len );
 
     my $obj = __PACKAGE__->new(
@@ -337,8 +338,9 @@ sub __make_scheme {
 }
 
 sub __make_algorithm {
+    my ( $algorithm ) = @_;
 
-    my $algorithm = shift;
+    $algorithm ||= '';
     local $1;
 
     if ( $algorithm =~ m!^S(.*)$! ) {
