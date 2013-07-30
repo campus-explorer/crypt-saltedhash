@@ -1,0 +1,7 @@
+blib
+MANIFEST
+META.yml
+Makefile
+Makefile.old
+MANIFEST.bak
+Crypt-SaltedHash-*
