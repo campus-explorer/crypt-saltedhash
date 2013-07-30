@@ -235,7 +235,7 @@ Returns the salt in binary form.
 sub salt_bin {
     my $self = shift;
 
-    return $self->{salt} =~ m!^HEX{(.*)}$!i ? pack( "H*", $1 ) : $self->{salt};
+    return $self->{salt} =~ m!^HEX\{(.*)\}$!i ? pack( "H*", $1 ) : $self->{salt};
 }
 
 =item B<salt_hex()>
@@ -247,7 +247,7 @@ Returns the salt in hexadecimal form ('HEX{...}')
 sub salt_hex {
     my $self = shift;
 
-    return $self->{salt} =~ m!^HEX{(.*)}$!i
+    return $self->{salt} =~ m!^HEX\{(.*)\}$!i
       ? $self->{salt}
       : 'HEX{' . join( '', unpack( 'H*', $self->{salt} ) ) . '}';
 }
