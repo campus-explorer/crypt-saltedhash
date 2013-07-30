@@ -8,6 +8,8 @@ use vars qw($VERSION);
 
 $VERSION = '0.06_02';
 
+=encoding latin1
+
 =head1 NAME
 
 Crypt::SaltedHash - Perl interface to functions that assist in working
