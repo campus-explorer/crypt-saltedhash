@@ -1,5 +1,12 @@
 Revision history for Perl extension Crypt::SaltedHash.
 
+0.07  Tue Jul 30
+    - switch to use Dist::Zilla
+    - fix bug with failed regex and localization of $1
+    - handle some uninitialized variables
+    - RT Bug #78505 for Crypt-SaltedHash: Noisy tests (Unescaped left brace in regex is deprecated)
+    - RT Bug #85627 for Crypt-SaltedHash: [PATCH] POD fix
+
 0.06  Sun Feb 28 01:55:22 2010
     - added clear method
 	- add returns now $self
