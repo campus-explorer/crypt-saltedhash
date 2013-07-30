@@ -6,7 +6,7 @@ use Digest       ();
 
 use vars qw($VERSION);
 
-$VERSION = '0.06_02';
+$VERSION = '0.08';
 
 =encoding latin1
 

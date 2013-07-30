@@ -1,5 +1,8 @@
 Revision history for Perl extension Crypt::SaltedHash.
 
+0.08 Tue Jul 30
+    - correct version in package
+
 0.07  Tue Jul 30
     - switch to use Dist::Zilla
     - fix bug with failed regex and localization of $1
