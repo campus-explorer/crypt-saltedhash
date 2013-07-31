@@ -1,5 +1,8 @@
 Revision history for Perl extension Crypt::SaltedHash.
 
+0.09 Tue Jul 30
+    - add Test::Fatal test requires
+
 0.08 Tue Jul 30
     - correct version in package
 
