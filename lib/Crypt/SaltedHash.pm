@@ -31,7 +31,7 @@ with salted hashes.
 The C<Crypt::SaltedHash> module provides an object oriented interface to
 create salted (or seeded) hashes of clear text data. The original
 formalization of this concept comes from RFC-3112 and is extended by the use
-of different digital agorithms.
+of different digital algorithms.
 
 =head1 ABSTRACT
 
@@ -111,7 +111,7 @@ In pseudocode we would perform the extraction and verification operations as suc
 
     Strip the hash identifier from the Digest
     Base64Decode(Digest, 20)
-    Split Digest into 2 byte arrays, one for bytes 0 – 20(pwhash), one for bytes 21 – 32 (salt)
+    Split Digest into 2 byte arrays, one for bytes 0 ï¿½ 20(pwhash), one for bytes 21 ï¿½ 32 (salt)
     Get the target string and salt as separate binary object
     Concatenate the 2 binary values
     SHA hash the concatenation into targetPasswordHash
@@ -119,9 +119,9 @@ In pseudocode we would perform the extraction and verification operations as suc
     Return corresponding Boolean value
 
 Our job is to split the original digest up into 2 distinct byte arrays, one of the left 20 (0 - 20 including the null terminator) bytes and
-the other for the rest of the data. The left 0 – 20 bytes will represent the salted  binary value we will use for a byte-by-byte data
+the other for the rest of the data. The left 0 ï¿½ 20 bytes will represent the salted  binary value we will use for a byte-by-byte data
 match against the new clear text presented for verification. The string presented for verification will have to be salted as well. The rest
-of the bytes (21 – 32) represent the random salt which when decoded will show the exact hex characters that make up the once randomly
+of the bytes (21 ï¿½ 32) represent the random salt which when decoded will show the exact hex characters that make up the once randomly
 generated seed.
 
 We are now ready to verify some data. Let's start with the 4 hashes presented earlier. We will run them through our code to extract the
@@ -169,7 +169,7 @@ be used by default.
 =item *
 
 I<salt>: You can specify your on salt. You can either specify it as a sequence
-of charactres or as a hex encoded string of the form "HEX{...}". If the argument is missing,
+of characters or as a hex encoded string of the form "HEX{...}". If the argument is missing,
 a random seed is provided for you (recommended).
 
 =item *
