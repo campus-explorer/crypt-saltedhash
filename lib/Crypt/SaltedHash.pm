@@ -1,6 +1,8 @@
 package Crypt::SaltedHash;
 
+use 5.006;
 use strict;
+use warnings;
 use MIME::Base64 ();
 use Digest       ();
 
